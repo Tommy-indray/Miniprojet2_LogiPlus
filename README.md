@@ -93,4 +93,6 @@ Système de gestion logistique spatiale pour optimiser les opérations de la soc
 - Utilisation des index GIST
 
 ### Rendu
-- Date limite : 18/01/2026
+- Date : 17/01/2026
+
+### Etudiant : INDRAY Christommy.
