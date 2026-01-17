@@ -1,38 +1,38 @@
-### Miniprojet 2 : LogiPlus
+## Miniprojet 2 : LogiPlus
 
-## Contexte
+### Contexte
 Système de gestion logistique spatiale pour optimiser les opérations de la société LogiPlus, qui rencontre des retards, ruptures de stock locales et écarts de performance entre transporteurs.
 
-## Objectifs
+### Objectifs
 - Prioriser produits/entrepôts critiques avec analyse géographique
 - Améliorer fiabilité des expéditions selon distances
 - Réduire ruptures locales via rééquilibrage intra-pays
 - Optimiser taux de remplissage des tournées
 
-## Technologies
+### Technologies
 - SGBD : PostgreSQL 14+
 - Extension : PostGIS 3+
 - SRID : EPSG:3857 (Web Mercator)
 - Schéma : logistik
 
-## Structure des fichiers
-# Scripts SQL (à exécuter dans l'ordre) :
+### Structure des fichiers
+#### Scripts SQL (à exécuter dans l'ordre) :
 - 01_schema_creation.sql - Création du schéma, tables et index
 - 02_data_insertion.sql - Données de test avec géométries spatiales
 - 03_business_queries.sql - 12 questions métier classiques
 - 04_spatial_queries.sql - 20 questions avec analyse spatiale
 - 05_optimization.sql - Indexation avancée et optimisation
 - 06_validation_tests.sql - Tests de validation et instructions
-# Résultats des requêtes :
+#### Résultats des requêtes :
 - business.pdf
 - spatial.pdf
-# Explications techniques : 
+#### Explications techniques : 
 - technic.pdf
-# Diagramme des tables :
+#### Diagramme des tables :
 - diagram.png
 
-## Questions implémentées
-# Métier (12 questions)
+### Questions implémentées
+#### Métier (12 questions)
 - Q1 : Top 10 produits par quantité (30 derniers jours)
 - Q2 : Commandes en retard
 - Q3 : Références sous safety_stock par entrepôt
@@ -45,7 +45,7 @@ Système de gestion logistique spatiale pour optimiser les opérations de la soc
 - Q10 : Expéditions livrées sans événement
 - Q11 : Items orphelins
 - Q12 : Commandes "à risque"
-# Spatiales (20 questions)
+#### Spatiales (20 questions)
 - QS1 : Appariement commande → entrepôt le plus proche
 - QS2 : Portée moyenne des entrepôts
 - QS3 : Classement entrepôts par volume attribué
@@ -67,17 +67,17 @@ Système de gestion logistique spatiale pour optimiser les opérations de la soc
 - QS19 : Prévision de demande par zone
 - QS20 : Optimisation multi-critères nouveaux entrepôts
 
-## Optimisations techniques
-# Indexation spatiale
+### Optimisations techniques
+#### Indexation spatiale
 - Index GIST sur toutes les colonnes geometry(Point, 3857)
 - Opérateur KNN (<->) pour recherches de proximité
 - Index composite pour requêtes fréquentes
-# Performances
+#### Performances
 - Distances calculées en mètres (métrique euclidienne)
 - Transformation WGS84 → 3857 à l'insertion
 - Requêtes optimisées avec LATERAL JOIN
 
-## Données de test
+#### Données de test
 - 10 entrepôts en Europe
 - 12 produits avec poids/volume
 - 15 commandes clients
@@ -85,12 +85,12 @@ Système de gestion logistique spatiale pour optimiser les opérations de la soc
 - 7 véhicules de transport
 - Géométries spatiales pour toutes les destinations
 
-## Validation
-# Le projet inclut des tests de validation :
+### Validation
+#### Le projet inclut des tests de validation :
 - Intégrité des géométries spatiales
 - Cohérence des données
 - Performances des requêtes
 - Utilisation des index GIST
 
-## Rendu
+### Rendu
 - Date limite : 18/01/2026
